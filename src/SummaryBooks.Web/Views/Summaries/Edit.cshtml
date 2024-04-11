@@ -1,14 +1,8 @@
 ﻿@model SummaryBooks.Domain.Summary
 @{
-    ViewData["Title"] = "SummaryBooks";
+    ViewData["Title"] = "Edit - Summaries";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Bienvenido/a</h1>
-    <p>¿Qué nuevo libro has leido?, cúentanos...</p>
-</div>
-
-<form class="form-control" asp-action="Index">
+<form class="form-control" asp-action="Edit">
     <div class="mb-3">
         <label asp-for="title" class="form-label">Titulo</label>
         <input type="text" class="form-control" asp-for="title" placeholder="Ingrese el titulo...">
@@ -17,7 +11,5 @@
         <label asp-for="description" class="form-label">Resumen</label>
         <textarea class="form-control" asp-for="description" rows="3"></textarea>
     </div>
-    <input class="btn btn-primary form-control" type="submit" value="Publicar"/>
+    <input class="btn btn-primary form-control" type="submit" value="Modificar" />
 </form>
-
-

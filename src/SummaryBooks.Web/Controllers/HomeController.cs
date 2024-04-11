@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using SummaryBooks.Domain;
 using SummaryBooks.Persistence;
 using SummaryBooks.Web.Models;
 using System.Diagnostics;
@@ -15,15 +17,27 @@ namespace SummaryBooks.Web.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        [HttpGet]
+        public async Task<IActionResult> Index()
         {
             return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Index(Summary model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            _context.Summaries.Add(model);
+            _context.SaveChanges();
+            //return View();
+            //return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
