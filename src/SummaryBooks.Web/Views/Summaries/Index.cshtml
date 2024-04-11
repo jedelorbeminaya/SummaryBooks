@@ -1,0 +1,38 @@
+﻿@model IEnumerable<SummaryBooks.Domain.Summary>
+@{
+    ViewData["Title"] = "Summaries - List";
+}
+
+<h1 class="text-center">Summaries List</h1>
+<br/>
+<a class="btn btn-primary form-control" asp-controller="Home" asp-action="Index">Crear resumén</a>
+<hr />
+<br/>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Titulo</th>
+            <th scope="col">Resumen</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var summary in @Model)
+        {
+            <tr>
+                <th>@summary.title</th>
+                <td>@summary.description</td>
+                <td>
+                    <div class="btn-group form-control" role="group" aria-label="btn">
+                        <a class="btn btn-warning" asp-controller="Summaries" asp-action="Edit" asp-route-id=@summary.id>Edit</a>
+                        <a class="btn btn-danger" asp-controller="Summaries" asp-action="Delete" asp-route-id=@summary.id>Delete</a>
+                    </div>
+                </td>
+                
+                
+            </tr>
+        }
+        
+      
+    </tbody>
+</table>

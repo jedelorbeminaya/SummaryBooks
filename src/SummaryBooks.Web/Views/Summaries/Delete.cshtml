@@ -1,0 +1,22 @@
+﻿@model SummaryBooks.Domain.Summary
+@{
+    ViewData["Title"] = "Delete - Summaries";
+}
+<h1 class="text-center">¿Esta seguro que quiere eliminar este contacto?</h1>
+<hr/>
+<div class="container">
+    <h2 class="text-center">Titulo: <span class="text-primary">@Model.title</span></h2>
+    <h2 class="text-center">Description: <span class="text-primary">@Model.description</span></h2>
+</div>
+<br/>
+<br/>
+<form asp-action="Delete">
+    <div class="btn-group form-control" role="group" aria-label="btn">
+        <a class="btn btn-warning" asp-action="Index">Retroceder</a>
+        <input class="btn btn-primary" type="submit" value="Si, lo estoy" />
+    </div>
+   
+</form>
+<br />
+<br />
+
