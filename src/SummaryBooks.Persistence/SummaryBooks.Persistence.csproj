@@ -19,4 +19,8 @@
     <ProjectReference Include="..\SummaryBooks.Domain\SummaryBooks.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DataBaseScript\" />
+  </ItemGroup>
+
 </Project>
